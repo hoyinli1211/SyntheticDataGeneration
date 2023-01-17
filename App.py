@@ -47,7 +47,7 @@ with tab_main:
   fake = Faker()
 
   # Use the `selectbox` widget to gather the user's data type choice
-  data_types = fake.format_providers
+  data_types = fake.providers()
   data_type_choice = st.multiselect("Select the data type", data_types)
 
   # Use the `multiselectbox` widget to gather the user's language choice
