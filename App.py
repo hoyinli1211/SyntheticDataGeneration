@@ -44,16 +44,25 @@ with tab_note:
 tab_main = tabs[1]
 
 with tab_main:
-  # Create an instance of the Faker class
-  fake = Faker()
+  # Get a list of available locales
+  locales = Faker().locales
 
-  # Use the `selectbox` widget to gather the user's data type choice
-  data_types = dir(fake)
-  data_type_choice = st.multiselect("Select the data type", data_types)
+  # Ask the user to select a locale
+  selected_locale = st.selectbox("Select a locale", locales)
 
-  # Use the `multiselectbox` widget to gather the user's language choice
-  languages = fake.locales
-  language_choice = st.multiselect("Select the language", languages)
+  # Create an instance of the Faker class with the selected locale
+  fake = Faker(selected_locale)
+
+  # Get the list of providers for the selected locale
+  providers = fake.providers()
+
+  # Create a list of available data types based on the selected locale's providers
+  data_type_choice = []
+  for provider in providers:
+      data_type_choice.extend(fake.methods[provider])
+
+  # Ask the user to select data types
+  data_type_choice = st.multiselect("Select data types", data_type_choice)
 
   # Use the `number_input` widget to gather the user's desired number of records
   num_records = st.number_input("Enter the number of records to generate", min_value=1)
