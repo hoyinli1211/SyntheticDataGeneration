@@ -15,25 +15,25 @@ def faker_introduction():
   st.markdown("Generating synthetic data can be useful for testing and data analysis purposes, as it allows you to work with a large dataset without compromising on the privacy of real users.")
 
 def create_data(choice, n):
+
+  # Create a dictionary to map data types to their corresponding methods in the Faker class
+  data_type_mapping = {
+      "name": fake.name,
+      "address": fake.address,
+      "email": fake.email,
+      # Add other data types and their corresponding methods
+  }
+
+  # Create an empty dataframe
   data = pd.DataFrame()
+
   # Iterate through the selected data types
   for data_type in data_type_choice:
       new_col = []
-      if data_type == "name":
-          for _ in range(num_records):
-              name = fake.name()
-              new_col.append(name)
-          data = pd.concat([data, pd.DataFrame({'Name': new_col})], axis=1)
-      elif data_type == "address":
-          for _ in range(num_records):
-              address = fake.address()
-              new_col.append(address)
-          data = pd.concat([data, pd.DataFrame({'Address': new_col})], axis=1)
-      elif data_type == "email":
-          for _ in range(num_records):
-              email = fake.email()
-              new_col.append(email)
-          data = pd.concat([data, pd.DataFrame({'Email': new_col})], axis=1)
+      method = data_type_mapping[data_type]
+      for _ in range(num_records):
+          new_col.append(method())
+      data = pd.concat([data, pd.DataFrame({data_type: new_col})], axis=1)
   return data
 
 #Main Page
