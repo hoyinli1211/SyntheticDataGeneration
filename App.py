@@ -35,7 +35,6 @@ def create_data(choice, n):
     "url": fake.url,
     "company_suffix": fake.company_suffix,
     "company": fake.company,
-    "job_title": fake.job_title,
     "industry": fake.industry
   }
   st.write(data_type_mapping)
