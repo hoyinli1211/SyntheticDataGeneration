@@ -54,7 +54,7 @@ with tab_main:
   fake = Faker(selected_locale)
 
   # Get the list of providers for the selected locale
-  providers = fake.providers()
+  providers = Faker().providers()
 
   # Create a list of available data types based on the selected locale's providers
   data_type_choice = []
