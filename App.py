@@ -44,17 +44,10 @@ with tab_note:
 tab_main = tabs[1]
 
 with tab_main:
-  # Get a list of available locales
-  locales = Faker().locales
-
-  # Ask the user to select a locale
-  selected_locale = st.selectbox("Select a locale", locales)
-
-  # Create an instance of the Faker class with the selected locale
-  fake = Faker(selected_locale)
 
   # Get the list of providers for the selected locale
-  providers = Faker().providers()
+  providers = dir(Faker())
+  st.write(providers)
 
   # Create a list of available data types based on the selected locale's providers
   data_type_choice = []
