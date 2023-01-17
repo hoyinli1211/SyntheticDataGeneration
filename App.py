@@ -45,8 +45,9 @@ tab_main = tabs[1]
 
 with tab_main:
 
+  fake = Faker()
   # Get the list of providers for the selected locale
-  providers = dir(Faker())
+  providers = dir(fake)
   st.write(providers)
 
   # Create a list of available data types based on the selected locale's providers
