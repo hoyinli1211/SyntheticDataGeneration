@@ -18,12 +18,28 @@ def create_data(choice, n):
 
   # Create a dictionary to map data types to their corresponding methods in the Faker class
   data_type_mapping = {
-      "name": fake.name,
-      "address": fake.address,
-      "email": fake.email,
-      # Add other data types and their corresponding methods
+    "name": fake.name,
+    "first_name": fake.first_name,
+    "last_name": fake.last_name,
+    "prefix": fake.prefix,
+    "suffix": fake.suffix,
+    "job": fake.job,
+    "address": fake.address,
+    "email": fake.email,
+    "phone_number": fake.phone_number,
+    "date_of_birth": fake.date_of_birth,
+    "age": fake.age,
+    "gender": fake.gender,
+    "ssn": fake.ssn,
+    "username": fake.user_name,
+    "password": fake.password,
+    "url": fake.url,
+    "company_suffix": fake.company_suffix,
+    "company": fake.company,
+    "job_title": fake.job_title,
+    "industry": fake.industry
   }
-
+  st.write(data_type_mapping)
   # Create an empty dataframe
   data = pd.DataFrame()
 
