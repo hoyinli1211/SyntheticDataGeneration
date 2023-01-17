@@ -2,4 +2,4 @@ streamlit==1.14.0
 pandas==1.2.3
 pandas_profiling==2.9.0
 numpy==1.23.1
-faker==2.0.4
+faker==5.0.0
