@@ -28,7 +28,7 @@ def create_data(choice, n):
     "email": fake.email,
     "phone_number": fake.phone_number,
     "date_of_birth": fake.date_of_birth,
-    "gender": fake.gender,
+    "gender": fake.random_element(elements=("male", "female")),
     "ssn": fake.ssn,
     "username": fake.user_name,
     "password": fake.password,
