@@ -47,14 +47,8 @@ with tab_main:
 
   fake = Faker()
   # Get the list of providers for the selected locale
-  providers = dir(fake)
-  st.write(providers)
-
-  # Create a list of available data types based on the selected locale's providers
-  data_type_choice = []
-  for provider in providers:
-      data_type_choice.extend(fake.methods[provider])
-
+  data_type_choice = dir(fake)
+  
   # Ask the user to select data types
   data_type_choice = st.multiselect("Select data types", data_type_choice)
 
