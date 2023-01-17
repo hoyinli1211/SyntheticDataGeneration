@@ -34,8 +34,7 @@ def create_data(choice, n):
     "password": fake.password,
     "url": fake.url,
     "company_suffix": fake.company_suffix,
-    "company": fake.company,
-    "industry": fake.industry
+    "company": fake.company
   }
   st.write(data_type_mapping)
   # Create an empty dataframe
