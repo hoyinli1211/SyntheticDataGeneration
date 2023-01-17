@@ -16,18 +16,15 @@ def faker_introduction():
 
 def create_data(choice, n):
   data = pd.DataFrame()
-  for _ in range(n):
-    for data_type in data_type_choice:
-      if data_type == "person":
-        name = fake.name()
-        address = fake.address()
-        data = data.append({'Name': name, 'Address': address}, ignore_index=True)
-      elif data_type == "address":
-        address = fake.address()
-        data = data.append({'Address': address}, ignore_index=True)
+  for data_type in data_type_choice:
+      if data_type == "address":
+        for _ in range(n):
+          address = fake.address()
+          data = data.append({'Address': address}, ignore_index=True)
       elif data_type == "email":
-        email = fake.email()
-        data = data.append({'Email': email}, ignore_index=True)
+        for _ in range(n):
+          email = fake.email()
+          data = data.append({'Email': email}, ignore_index=True)
       else:
         Nothing
   return data
