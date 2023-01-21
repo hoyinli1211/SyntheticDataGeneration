@@ -38,7 +38,7 @@ data_type_mapping = {
   #transaction related
   "tran_date": fake.date_this_decade,
   "tran_datetime": fake.date_time,
-  "tran_amount": faker.random_int(1, 100000),
+  "tran_amount": fake.random_int(1, 100000),
   "tran_CD": fake.random_element(elements=("debit", "credit")),
   "tran_status": fake.random_element(elements=("approved", "declined", "pending")),
   "tran_type": fake.random_element(elements=("ATM", "FPS", "CHATs", "SWIFT", "CHEQUE", "Others")),
