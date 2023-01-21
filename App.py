@@ -36,7 +36,8 @@ data_type_mapping = {
   "company_suffix": fake.company_suffix,
   "company": fake.company,
   #transaction related
-  "tran_date": fake.date_time_between(start_date='-10y', end_date='now'),
+  "tran_date": fake.date_this_decade(),
+  "tran_datetime": faker.date_time(),
   "tran_amount": fake.random_int(min=1, max=1000000, step=1),
   "tran_CD": fake.random_element(elements=("debit", "credit")),
   "tran_status": fake.random_element(elements=("approved", "declined", "pending")),
