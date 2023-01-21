@@ -72,7 +72,7 @@ with tab_main:
   # Use the `number_input` widget to gather the user's desired number of records
   num_records = st.number_input("Enter the number of records to generate", min_value=1)
   
-  if st.checkbox("Generate Data"):
+  if st.button("Generate Data"):
     df=create_data(data_type_mapping, data_type_choice, num_records)
     st.write('Synthetic Data',df)
     
