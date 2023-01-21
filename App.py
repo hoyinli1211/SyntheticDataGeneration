@@ -39,7 +39,6 @@ data_type_mapping = {
 def create_data(type, choice, n):
 
   type = data_type_mapping
-  st.write(type)
   # Create an empty dataframe
   data = {}
 
