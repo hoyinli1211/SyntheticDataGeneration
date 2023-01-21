@@ -15,6 +15,7 @@ def faker_introduction():
   st.markdown("Generating synthetic data can be useful for testing and data analysis purposes, as it allows you to work with a large dataset without compromising on the privacy of real users.")
 
 # Create a dictionary to map data types to their corresponding methods in the Faker class
+fake = Faker()
 data_type_mapping = {
   "name": fake.name,
   "first_name": fake.first_name,
