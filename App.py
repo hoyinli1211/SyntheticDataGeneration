@@ -37,6 +37,7 @@ data_type_mapping = {
 }  
 
 st.write(data_type_mapping.keys())
+st.write(data_type_mapping[data_type_mapping.keys()[1]])
 
 def create_data(type, choice, n):
 
