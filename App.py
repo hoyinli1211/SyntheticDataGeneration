@@ -55,9 +55,11 @@ def create_data(type, choice, n):
 
   # Iterate through the selected data types
   for data_type in choice:
+      new_col = []
       method = type[data_type]
-      data[data_type] = [method() for _ in range(n)]
-  df = pd.DataFrame(data)
+      for _ in range(n):
+        new_col.append(method())
+  df = pd.concat([data, pd.DataFrame({data_type: new_col})], axis=1)
   return df
 
 #Main Page
