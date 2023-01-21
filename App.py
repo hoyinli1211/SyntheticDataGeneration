@@ -1,6 +1,7 @@
 import streamlit as st
 from faker import Faker
 import pandas as pd
+from random import randrange
 
 #Sidebar
 st.sidebar.title("Instructions:")
@@ -38,7 +39,7 @@ data_type_mapping = {
   #transaction related
   "tran_date": fake.date_this_decade,
   "tran_datetime": fake.date_time,
-  "tran_amount": pyint(min_value = 1, max_value=1000000),
+  "tran_amount": random.randint(1, 1000000),
   "tran_CD": fake.random_element(elements=("debit", "credit")),
   "tran_status": fake.random_element(elements=("approved", "declined", "pending")),
   "tran_type": fake.random_element(elements=("ATM", "FPS", "CHATs", "SWIFT", "CHEQUE", "Others")),
