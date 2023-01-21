@@ -36,8 +36,8 @@ data_type_mapping = {
   "company": fake.company
 }  
 
-st.write(data_type_mapping.keys())
-st.write(data_type_mapping['name'])
+df_type_mapping = pd.DataFrame.from_dict(data_type_mapping)
+st.write(df_type_mapping)
 
 def create_data(type, choice, n):
 
