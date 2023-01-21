@@ -29,7 +29,7 @@ data_type_mapping = {
   "email": fake.email,
   "phone_number": fake.phone_number,
   "date_of_birth": fake.date_of_birth,
-  "gender": fake.random_element(elements=("male", "female")),
+  "gender": lambda: fake.random_element(elements=("male", "female")),
   "ssn": fake.ssn,
   "username": fake.user_name,
   "password": fake.password,
@@ -40,10 +40,10 @@ data_type_mapping = {
   "tran_date": fake.date_this_decade,
   "tran_datetime": fake.date_time,
   "tran_amount": lambda: random.randint(1, 100000),
-  "tran_CD": fake.random_element(elements=("debit", "credit")),
+  "tran_CD": lambda:fake.random_element(elements=("debit", "credit")),
   "tran_status": lambda: fake.random_element(elements=("approved", "declined", "pending")),
-  "tran_type": fake.random_element(elements=("ATM", "FPS", "CHATs", "SWIFT", "CHEQUE", "Others")),
-  "tran_channel": fake.random_element(elements=("Internet Banking","Mobile Banking","Branch/ATM")),
+  "tran_type": lambda:fake.random_element(elements=("ATM", "FPS", "CHATs", "SWIFT", "CHEQUE", "Others")),
+  "tran_channel": lambda:fake.random_element(elements=("Internet Banking","Mobile Banking","Branch/ATM")),
   "ctp_name": fake.name
 }  
 
