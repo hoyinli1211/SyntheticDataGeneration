@@ -17,6 +17,7 @@ def faker_introduction():
 # Create a dictionary to map data types to their corresponding methods in the Faker class
 fake = Faker()
 data_type_mapping = {
+  #customer profile related
   "name": fake.name,
   "first_name": fake.first_name,
   "last_name": fake.last_name,
@@ -33,7 +34,15 @@ data_type_mapping = {
   "password": fake.password,
   "url": fake.url,
   "company_suffix": fake.company_suffix,
-  "company": fake.company
+  "company": fake.company,
+  #transaction related
+  "tran_date": fake.date_time_this_decade(),
+  "tran_amount": fake.random_int(min=1, max=1000000, step=1),
+  "tran_CD": fake.random_element(elements=("debit", "credit")),
+  "tran_status": fake.random_element(elements=("approved", "declined", "pending")),
+  "tran_type": fake.random_element(elements=("ATM", "FPS", "CHATs", "SWIFT", "CHEQUE", "Others")),
+  "tran_channel": fake.random_element(elements=("Internet Banking","Mobile Banking","Branch/ATM")),
+  "ctp_name": fake.name()
 }  
 
 def create_data(type, choice, n):
