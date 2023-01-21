@@ -44,9 +44,9 @@ def create_data(type, choice, n):
   data = {}
 
   # Iterate through the selected data types
-  for data_type in data_type_choice:
-      method = data_type_mapping[data_type]
-      data[data_type] = [method() for _ in range(num_records)]
+  for data_type in choice:
+      method = type[data_type]
+      data[data_type] = [method() for _ in range(n)]
   df = pd.DataFrame(data)
   return df
 
