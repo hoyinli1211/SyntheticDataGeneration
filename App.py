@@ -40,10 +40,10 @@ data_type_mapping = {
   "tran_date": fake.date_this_decade,
   "tran_datetime": fake.date_time,
   "tran_amount": lambda: random.randint(1, 100000),
-  "tran_CD": lambda: fake.random_element(elements=("debit", "credit")),
-  "tran_status": lambda: fake.random_element(elements=("approved", "declined", "pending")),
-  "tran_type": lambda: fake.random_element(elements=("ATM", "FPS", "CHATs", "SWIFT", "CHEQUE", "Others")),
-  "tran_channel": lambda: fake.random_element(elements=("Internet Banking","Mobile Banking","Branch/ATM")),
+  "tran_CD": fake.random_element(elements=("debit", "credit")),
+  "tran_status": fake.random_element(elements=("approved", "declined", "pending")),
+  "tran_type": fake.random_element(elements=("ATM", "FPS", "CHATs", "SWIFT", "CHEQUE", "Others")),
+  "tran_channel": fake.random_element(elements=("Internet Banking","Mobile Banking","Branch/ATM")),
   "ctp_name": fake.name
 }  
 
@@ -55,11 +55,9 @@ def create_data(type, choice, n):
 
   # Iterate through the selected data types
   for data_type in choice:
-      new_col = []
       method = type[data_type]
-      for _ in range(n):
-        new_col.append(method())
-  df = pd.concat([data, pd.DataFrame({data_type: new_col})], axis=1)
+      data[data_type] = [method() for _ in range(n)]
+  df = pd.DataFrame(data)
   return df
 
 #Main Page
