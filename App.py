@@ -36,9 +36,6 @@ data_type_mapping = {
   "company": fake.company
 }  
 
-df_type_mapping = pd.DataFrame(list(data_type_mapping.items()),columns=['data_type','function'])
-st.write(df_type_mapping)
-
 def create_data(type, choice, n):
 
   st.write(type)
@@ -48,7 +45,7 @@ def create_data(type, choice, n):
   # Iterate through the selected data types
   for data_type in choice:
       new_col = []
-      method = data_type_mapping[data_type]
+      method = [data_type_mapping[data_type]]
       for _ in range(num_records):
           new_col.append(method())
       data = pd.concat([data, pd.DataFrame({data_type: new_col})], axis=1)
