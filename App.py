@@ -1,7 +1,7 @@
 import streamlit as st
 from faker import Faker
 import pandas as pd
-from random
+import random
 
 #Sidebar
 st.sidebar.title("Instructions:")
