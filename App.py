@@ -38,18 +38,17 @@ data_type_mapping = {
 
 def create_data(type, choice, n):
 
+  type = data_type_mapping
   st.write(type)
   # Create an empty dataframe
-  data = pd.DataFrame()
+  data = {}
 
   # Iterate through the selected data types
-  for data_type in choice:
-      new_col = []
-      method = [data_type_mapping[data_type]]
-      for _ in range(num_records):
-          new_col.append(method())
-      data = pd.concat([data, pd.DataFrame({data_type: new_col})], axis=1)
-  return data
+  for data_type in data_type_choice:
+      method = data_type_mapping[data_type]
+      data[data_type] = [method() for _ in range(num_records)]
+  df = pd.DataFrame(data)
+  return df
 
 #Main Page
 st.title("Data Profiling Report")
