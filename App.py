@@ -85,7 +85,7 @@ with tab_main:
   
   if st.button("Generate Data"):
     df=create_data(data_type_mapping, data_type_choice, num_records)
-    st.write('Synthetic Data',df)
-    st.download_button("Download synthetic data",df.to_csv(index=False), "synthetic_data.csv")
+    st.write('Mock Data',df)
+    st.download_button("Download Mock data",df.to_csv(index=False), "mock_data.csv")
     
                
