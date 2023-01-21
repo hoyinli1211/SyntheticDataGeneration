@@ -6,9 +6,9 @@ import random
 #Sidebar
 st.sidebar.title("Instructions:")
 st.sidebar.markdown("1. Select the data type from the dropdown menu")
-st.sidebar.markdown("2. Select the language from the checkbox menu")
-st.sidebar.markdown("3. Enter the number of records to generate")
-st.sidebar.markdown("4. Click the 'Generate Data' checkbox to generate the synthetic data")
+st.sidebar.markdown("2. Enter the number of records to generate")
+st.sidebar.markdown("3. Click the 'Generate Data' checkbox to generate the synthetic data")
+st.sidebar.markdown("4. Download the generated synthetic data")
 
 def faker_introduction():
   st.title("Faker Introduction")
@@ -61,7 +61,7 @@ def create_data(type, choice, n):
   return df
 
 #Main Page
-st.title("Data Profiling Report")
+st.title("Synthetic Data Generation")
 tabs = st.tabs(["Note","Configuration & Synthetic Data Generation"])
 
 tab_note = tabs[0]
