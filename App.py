@@ -81,10 +81,11 @@ with tab_main:
   data_type_choice = st.multiselect("Select data types", data_type_choice)
 
   # Use the `number_input` widget to gather the user's desired number of records
-  num_records = st.number_input("Enter the number of records to generate", min_value=1)
+  num_records = st.number_input("Enter the number of records to generate", value=1000, min_value=1)
   
   if st.button("Generate Data"):
     df=create_data(data_type_mapping, data_type_choice, num_records)
     st.write('Synthetic Data',df)
+    st.download_button("Download synthetic data",df.to_csv(index=False), "synthetic_data.csv")
     
                
