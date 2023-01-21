@@ -35,7 +35,9 @@ data_type_mapping = {
   "company_suffix": fake.company_suffix,
   "company": fake.company
 }  
-  
+
+st.write(data_type_mapping.keys())
+
 def create_data(type, choice, n):
 
   st.write(type)
