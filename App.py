@@ -14,34 +14,35 @@ def faker_introduction():
   st.markdown("Faker is a Python package that generates synthetic data for various purposes such as testing and data analysis. It can be used to generate fake names, addresses, email addresses, etc.")
   st.markdown("Generating synthetic data can be useful for testing and data analysis purposes, as it allows you to work with a large dataset without compromising on the privacy of real users.")
 
-def create_data(choice, n):
+# Create a dictionary to map data types to their corresponding methods in the Faker class
+data_type_mapping = {
+  "name": fake.name,
+  "first_name": fake.first_name,
+  "last_name": fake.last_name,
+  "prefix": fake.prefix,
+  "suffix": fake.suffix,
+  "job": fake.job,
+  "address": fake.address,
+  "email": fake.email,
+  "phone_number": fake.phone_number,
+  "date_of_birth": fake.date_of_birth,
+  "gender": fake.random_element(elements=("male", "female")),
+  "ssn": fake.ssn,
+  "username": fake.user_name,
+  "password": fake.password,
+  "url": fake.url,
+  "company_suffix": fake.company_suffix,
+  "company": fake.company
+}  
+  
+def create_data(type, choice, n):
 
-  # Create a dictionary to map data types to their corresponding methods in the Faker class
-  data_type_mapping = {
-    "name": fake.name,
-    "first_name": fake.first_name,
-    "last_name": fake.last_name,
-    "prefix": fake.prefix,
-    "suffix": fake.suffix,
-    "job": fake.job,
-    "address": fake.address,
-    "email": fake.email,
-    "phone_number": fake.phone_number,
-    "date_of_birth": fake.date_of_birth,
-    "gender": fake.random_element(elements=("male", "female")),
-    "ssn": fake.ssn,
-    "username": fake.user_name,
-    "password": fake.password,
-    "url": fake.url,
-    "company_suffix": fake.company_suffix,
-    "company": fake.company
-  }
-  st.write(data_type_mapping)
+  st.write(type)
   # Create an empty dataframe
   data = pd.DataFrame()
 
   # Iterate through the selected data types
-  for data_type in data_type_choice:
+  for data_type in choice:
       new_col = []
       method = data_type_mapping[data_type]
       for _ in range(num_records):
@@ -64,7 +65,7 @@ with tab_main:
 
   fake = Faker()
   # Get the list of providers for the selected locale
-  data_type_choice = dir(fake)
+  data_type_choice = list(data_type_mapping.keys())
   
   # Ask the user to select data types
   data_type_choice = st.multiselect("Select data types", data_type_choice)
@@ -73,7 +74,7 @@ with tab_main:
   num_records = st.number_input("Enter the number of records to generate", min_value=1)
   
   if st.checkbox("Generate Data"):
-    df=create_data(data_type_choice,num_records)
+    df=create_data(data_type_mapping, data_type_choice, num_records)
     st.write('Synthetic Data',df)
     
                
