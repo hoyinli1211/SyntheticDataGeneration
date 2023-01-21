@@ -36,13 +36,14 @@ data_type_mapping = {
   "company_suffix": fake.company_suffix,
   "company": fake.company,
   #transaction related
-  "tran_date": fake.date_this_decade(),
+  "tran_date": fake.date_this_decade,
+  "tran_datetime": faker.date_time,
   "tran_amount": fake.random_int(min=1, max=1000000, step=1),
   "tran_CD": fake.random_element(elements=("debit", "credit")),
   "tran_status": fake.random_element(elements=("approved", "declined", "pending")),
   "tran_type": fake.random_element(elements=("ATM", "FPS", "CHATs", "SWIFT", "CHEQUE", "Others")),
   "tran_channel": fake.random_element(elements=("Internet Banking","Mobile Banking","Branch/ATM")),
-  "ctp_name": fake.name()
+  "ctp_name": fake.name
 }  
 
 def create_data(type, choice, n):
